@@ -16,7 +16,7 @@ jobs:
       - name: Harshavardhan.karimikonda@gramener.com - Update a file
         run: |
           # Create or modify a file in the repository
-          echo "This file was updated by the GitHub Actions workflow at $(date)" > update.txt
+          echo "This file was updated by the GitHub Actions workflow at $(date)" >> update.txt
           
           # Configure git with user details
           git config --global user.name "GitHub Actions"
@@ -25,6 +25,10 @@ jobs:
           # Add, commit, and push the changes using the GITHUB_TOKEN for authentication
           git add update.txt
           git commit -m "Daily update commit"
-          
-          # Correct git push with the token as part of the URL
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }}
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
+
+      - name: Debugging Step
+        run: |
+          echo "Current branch: $(git branch --show-current)"
+          echo "Repository URL: $(git remote get-url origin)"
+          git status

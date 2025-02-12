@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository - harshavardhan.karimikonda@gramener.com
+      - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Update a file - harshavardhan.karimikonda@gramener.com
+      - name: Update a file - Email: harshavardhan.karimikonda@gramener.com
         run: |
           # Create or modify a file in the repository
           echo "This file was updated by the GitHub Actions workflow at $(date)" >> update.txt
@@ -27,7 +27,7 @@ jobs:
           git commit -m "Daily update commit"
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
 
-      - name: Debugging Step - harshavardhan.karimikonda@gramener.com
+      - name: Debugging Step - Email: harshavardhan.karimikonda@gramener.com
         run: |
           echo "Current branch: $(git branch --show-current)"
           echo "Repository URL: $(git remote get-url origin)"

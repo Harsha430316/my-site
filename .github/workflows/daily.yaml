@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repository - harshavardhan.karimikonda@gramener.com
         uses: actions/checkout@v2
 
       - name: Update a file - harshavardhan.karimikonda@gramener.com

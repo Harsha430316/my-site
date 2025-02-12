@@ -1,0 +1,30 @@
+name: Daily Commit Workflow
+
+on:
+  schedule:
+    - cron: "0 3 * * *"  # This will run the workflow once per day at 3 AM UTC
+  workflow_dispatch:  # Allow manual triggering of the workflow
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Harshavardhan.karimikonda@gramener.com - Update a file
+        run: |
+          # Create or modify a file in the repository
+          echo "This file was updated by the GitHub Actions workflow at $(date)" > update.txt
+          
+          # Configure git with user details
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Add, commit, and push the changes using the GITHUB_TOKEN for authentication
+          git add update.txt
+          git commit -m "Daily update commit"
+          
+          # Correct git push with the token as part of the URL
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }}

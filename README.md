@@ -8,8 +8,9 @@ graph TD
     D --> G[Get Top 5 Results from Original Query]
     F --> H[Get Top 5 Results from Translated Query]
     G --> I[LLM Judge (5 Results)]
-    H --> J[Combine Top 10 Results]
-    J --> K[LLM Judge (10 Results)]
-    I --> L[Final Result]
-    K --> L
+    H --> J[LLM Judge (5 Results)]
+    I --> K[Combine Results]
+    J --> K
+    K --> L[LLM Judge (Combined Results)]
+    L --> M[Final Result]
 ```

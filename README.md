@@ -5,7 +5,7 @@ graph TD
 
     C -- Yes --> D[Build & Run SQL Query Original Columns];
     D --> E[Get Top 5 Results Original Query];
-    E --> F[LLM Judge 5 Original Results];
+    E --> F[LLM Judges the 5 Original Results];
 
     C -- No --> G[Translate Columns to English using LLM];
     G --> H[Build & Run SQL Query Translated Columns];
@@ -14,7 +14,7 @@ graph TD
     I --> K[Get Top 5 Results Original Query];
     J --> L[Combine Results 10 Total];
     K --> L;
-    L --> M[LLM Judge 10 Combined Results];
+    L --> M[LLM Judges the 10 Combined Results];
 
     F --> N[Final Result Selected by LLM];
     M --> N;```

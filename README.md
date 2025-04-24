@@ -1,11 +1,13 @@
 ```mermaid
-graph LR
-    A[Input: Columns & Target Language] --> B{SQL Search (English)};
-    A --> C{Translate Columns to Target Language};
-    C --> D{SQL Search (Target Language)};
-    B --> E[Top 5 Results (English)];
-    D --> F[Top 5 Results (Target Language)];
-    E --> G{LLM Judge: Compare & Rank};
-    F --> G;
-    G --> H[Output: Best Match];
+graph TD
+    A[Start] --> B[Input Columns & Language Preference]
+    B --> C[Perform SQL Search with Original Columns (English)]
+    B --> D[Translate Columns using LLM (if not English)]
+    D --> E[Perform SQL Search with Translated Columns]
+    C --> F[Get Top 5 Results (English)]
+    E --> G[Get Top 5 Results (Translated)]
+    F --> H[Combine Top 10 Results]
+    G --> H
+    H --> I[Use LLM as Judge to Select Best Match]
+    I --> J[Final Result]
 ```

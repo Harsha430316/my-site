@@ -7,8 +7,8 @@ graph TD
     E --> F[SQL Search using Translated Columns]
     D --> G[Get Top 5 Results from Original Query]
     F --> H[Get Top 5 Results from Translated Query]
-    G --> I[LLM Judge (5 Results)]
-    H --> J[LLM Judge (5 Results)]
+    G --> I[LLM Judge (5 Results - Original)]
+    H --> J[LLM Judge (5 Results - Translated)]
     I --> K[Combine Results]
     J --> K
     K --> L[LLM Judge (Combined Results)]
